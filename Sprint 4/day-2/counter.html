@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        #container {
+            text-align: center;
+            margin: auto;
+
+            border-radius: 10px;
+            width: 30%;
+            margin-top: 100px;
+            box-shadow: rgba(241, 9, 9, 0.918) 0px 5px 15px;
+            background-color: rgb(22, 153, 204);
+        }
+
+        #inc {
+            background-color: green;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 0px;
+            font-weight: bold;
+        }
+
+        #dec {
+            background-color: red;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 0px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="count">Count</h1>
+        <button id="dec">Decrease</button>
+        <button id="inc">Increase</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var count = localStorage.getItem("counter") || 0;
+    document.querySelector("h1").innerText = count;
+
+    document.querySelector("#dec").addEventListener("click", decfun);
+    function decfun() {
+        count--;
+        document.querySelector("h1").innerText = count;
+        localStorage.setItem("counter", count);
+    }
+
+    document.querySelector("#inc").addEventListener("click", incfun);
+    function incfun() {
+        count++;
+        document.querySelector("h1").innerText = count;
+        localStorage.setItem("counter", count);
+    }
+
+
+</script>

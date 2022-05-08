@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            border: 0px solid red;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            height: 550px;
+            width: 35%;
+            margin: auto;
+        }
+
+        #basicForm {
+            border: 0px solid red;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            /* grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(1, auto); */
+
+        }
+
+        #basicForm>:nth-child(4) {
+            text-align: center;
+        }
+
+        #heading {
+            display: flex;
+            justify-content: center;
+        }
+
+        #container>h1 {
+            display: flex;
+            padding-top: 20px;
+            justify-content: center;
+        }
+
+        #container>div {
+            display: flex;
+            justify-content: center;
+            margin-top: -25px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px 0px;
+            padding-left: 10px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid slategrey;
+        }
+
+        #sub:hover {
+            background-color: blue;
+        }
+
+        #page {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #forgot {
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heading">
+        <img src="https://sso.masaischool.com/brand_dark.svg" />
+    </div>
+
+    <div id="container">
+        <h1>Sign In</h1>
+        <form id="basicForm">
+            <div>
+                <label for="">Email</label><br>
+                <input id="email" type="text" placeholder="Enter email" /><br><br>
+            </div>
+
+            <div>
+                <div id="page">
+                    <label for="">Password</label><br> <label id="forgot" for="">Frogot Password ?</label>
+                </div>
+                <input id="password" type="password" placeholder="Enter password" /><br><br>
+            </div>
+            <br><br>
+            <input id="sub" type="submit" value="SIGN UP" /><br><br>
+        </form>
+        <div>Already have an account?
+            <a href="./signup_login.html">Sign Un</a>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector("#basicForm").addEventListener("submit", loginData);
+    var signUpData = JSON.parse(localStorage.getItem("registrationData"));
+    // console.log(signUpData)
+    function loginData() {
+
+
+        console.log(signUpData)
+        if (signUpData.email == basicForm.email.value && signUpData.password == basicForm.password.value) {
+            alert("Log in successfull");
+            window.open("mens.html");
+        }
+        else if (signUpData.password != basicForm.password.value) {
+            alert("Password is incorrect");
+        }
+        else {
+            alert("Incorrect details")
+        }
+
+    }
+
+</script>
